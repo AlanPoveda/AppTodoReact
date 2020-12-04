@@ -1,4 +1,4 @@
-# AppTodoReact
+# AppTodoReact ⚛️
 Esta é uma aplicação bem simples para entender como que funciona o react e arriscando um JSX para poder funcionar.
 
 ![](/apptodoreact/AppTodoReact.PNG)
