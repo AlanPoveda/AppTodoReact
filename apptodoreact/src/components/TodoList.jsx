@@ -1,37 +1,53 @@
 import React, { useState } from 'react';
 import TodoForm from './TodoForm';
-import Tarefa from './Todo'
+import Todo from './Todo'
 
 
 function TodoList(){
-    const [tarefas, selecionarTarefas] = useState([]);
+    const [todos, setTodos] = useState([]);
 
-    const adicionandoTarefa = tarefa =>{
+    const addTodo = todo =>{
         //validação de dados
-        if (!tarefa.text || /^\s*$/.test(tarefa.text)){
-            return
+        if (!todo.text || /^\s*$/.test(todo.text)){
+            return;
         }
 
-        const novasTarefas = [tarefa, ...tarefas]
+        const newTodos = [todo, ...todos];
 
-         selecionarTarefas(novasTarefas)
+         setTodos(newTodos)
     };
 
-    const tarefaCompleta = id => {
-        let updateTarefa = tarefas.map(tarefa =>{
-            if (tarefa.id === id){
-                tarefa.estaCompleta = !tarefa.estaCompleta;
+    const updateTodo = (todoId, newValue) => {
+        if (!newValue.text || /^\s*$/.test(newValue.text)){
+            return;
+        }
+
+        setTodos(prev => prev.map(item => (item.id === todoId ? newValue : item)))
+    }
+
+    const removeTodo = id =>{
+        const removeArr = [...todos].filter(todo => todo.id !== id);
+
+        setTodos(removeArr);
+
+    }
+
+    const completeTodo = id => {
+        let updateTodos = todos.map(todo =>{
+            if (todo.id === id){
+                todo.isComplete = !todos.isComplete;
             }
-            return tarefa;
+            return todo;
         })
-        selecionarTarefas(updateTarefa);
+        setTodos(updateTodos);
     }
 
 
     return(
         <div className='todo-app'>
-            <TodoForm onSubmit={adicionandoTarefa}/>
-            <Tarefa tarefa={tarefas} tarefaCompleta={tarefaCompleta}/>
+            <TodoForm onSubmit={addTodo}/>
+            <Todo todos={todos} completeTodo={completeTodo} removeTodo={removeTodo} 
+            updateTodo={updateTodo}/>
         </div>
     )
 }

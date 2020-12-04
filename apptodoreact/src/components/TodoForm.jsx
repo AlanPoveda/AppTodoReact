@@ -1,16 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 function TodoForm(props){
     const [input, setInput] = useState('')
 
-    const mudandoTarefas = tarefa =>{
+    const inputRef = useRef(null)
+
+    useEffect(()=>{
+        inputRef.current.focus()
+    })
+
+    const handleChange = e =>{
          
-        setInput(tarefa.target.value);
+        setInput(e.target.value);
 
     };
 
-    const colocandoTarefas = tarefa => {
-        tarefa.preventDefault();
+    const handleSubmit = e => {
+        e.preventDefault();
 
 
         props.onSubmit({
@@ -23,14 +29,15 @@ function TodoForm(props){
     }
 
     return(
-        <form className='todo-form' onSubmit={colocandoTarefas}>
+        <form className='todo-form' onSubmit={handleSubmit}>
             <input 
             type = 'text' 
             placeholder='Coloque a tarefa' 
             value = {input}
             name = 'text'
             className = 'todo-input' 
-            onChange={mudandoTarefas}
+            onChange={handleChange}
+            ref={inputRef}
         />
         <button className ="todo-button">Adicionar tarefa</button>
         </form>
