@@ -9,8 +9,8 @@
   body {
     background: linear-gradient(
       90deg,
-      rgba(48, 16, 255, 1) 0%,
-      rgba(100, 115, 255, 1) 100%
+      #3A4D8F 0%,
+      #3A4D8F45 100%
     );
   }
   .todo-app {
@@ -44,7 +44,7 @@
   .todo-input {
     padding: 14px 32px 14px 16px;
     border-radius: 4px 0 0 4px;
-    border: 2px solid #5d0cff;
+    border: 2px solid #850D8A;
     outline: none;
     width: 320px;
     background: transparent;
@@ -63,7 +63,7 @@
     outline: none;
     background: linear-gradient(
       90deg,
-      rgba(93, 12, 255, 1) 0%,
+      #850D8A 0%,
       rgba(155, 0, 250, 1) 100%
     );
     color: #fff;
