@@ -3,7 +3,7 @@ Esta é uma aplicação bem simples para entender como que funciona o react e ar
 
 ![](/apptodoreact/AppTodoReact.PNG)
 
-O projeto foi copiado de um vídeo do Youtube
+O projeto foi copiado de um vídeo do Youtube. Espero que ajude.
 
 [Youtube Vídeo](https://www.youtube.com/watch?v=E1E08i2UJGI&t=1520s&ab_channel=BrianDesign)
 
